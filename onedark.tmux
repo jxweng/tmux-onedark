@@ -17,8 +17,9 @@ main() {
   tmux set-option -g status-left-style "bg=${green},fg=${black}"
 
   local battery_section=''
-  [[ "$OSTYPE" == darwin* ]] && battery_section=" | Batt:#{battery_percentage}"
-  tmux set-option -g status-right " CPU:#{cpu_percentage}${battery_section} #[bg=${special_grey}] %m/%d %R "
+  #[[ "$OSTYPE" == darwin* ]] && battery_section=" | Batt:#{battery_percentage}"
+  #tmux set-option -g status-right " CPU:#{cpu_percentage}${battery_section} #[bg=${special_grey}] %m/%d %R "
+  tmud set-option -g status-right '#{prefix_highlight} CPU: #{cpu_icon} #{cpu_percentage} #{wifi_ssid} #{wifi_icon}| %a %m-%d %H:%M'
   tmux set-option -g status-right-style "bg=${menu_grey},fg=${white}"
 
   tmux set-window-option -g window-status-format ' #I:#W '
